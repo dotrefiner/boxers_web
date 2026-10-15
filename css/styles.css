@@ -1,0 +1,1622 @@
+@import url('./tokens.css');
+
+/* ==========================================================================
+   RESET Y ESTILOS BASE (MOBILE-FIRST) - POP-PUNK 90s/2000s
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-texto);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-texto);
+  display: flex;
+  flex-direction: column;
+  background-image: 
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Enlaces y foco accesible */
+a {
+  color: var(--color-azul);
+  text-decoration: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+/* Modo oscuro: links generales amarillos, pero botones conservan su color propio */
+[data-theme="dark"] a:not(.btn) {
+  color: var(--color-amarillo);
+}
+
+a:hover:not(.btn) {
+  color: var(--color-mostaza);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+iframe:focus-visible {
+  outline: 3px solid var(--color-amarillo);
+  outline-offset: 3px;
+}
+
+[data-theme="light"] a:focus-visible,
+[data-theme="light"] button:focus-visible {
+  outline-color: var(--color-azul);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tipografía de títulos estilo Pop-Punk 90s/2000s */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.02;
+  color: var(--color-texto);
+}
+
+h1 {
+  font-size: clamp(3.6rem, 11vw, 8rem);
+  font-weight: 900;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  margin-bottom: var(--space-md);
+  position: relative;
+  display: inline-block;
+}
+
+/* Subrayado con cinta amarilla o roja */
+h2::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-amarillo);
+  margin-top: var(--space-2xs);
+  transform: skewX(-14deg);
+  border-bottom: 2px solid var(--color-rojo);
+}
+
+h3 {
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-texto);
+  margin-bottom: var(--space-md);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Contenedores */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.section {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  position: relative;
+}
+
+.section-alt {
+  background-color: var(--color-bg-alt);
+  border-top: 3px solid var(--color-border);
+  border-bottom: 3px solid var(--color-border);
+}
+
+.section-header {
+  margin-bottom: var(--space-xl);
+}
+
+/* Etiquetas y stickers estilo 90s */
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  color: var(--color-texto-oscuro);
+  background-color: var(--color-amarillo);
+  padding: var(--space-2xs) var(--space-sm);
+  border: 2px solid var(--color-texto-oscuro);
+  box-shadow: 3px 3px 0 var(--color-rojo);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+  font-weight: 900;
+  transform: rotate(-1.5deg);
+}
+
+/* ==========================================================================
+   CINTA MARQUEE / TICKER PUNK 90s/2000s
+   ========================================================================== */
+
+.punk-ticker {
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  padding: var(--space-xs) 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 3px solid var(--color-texto-oscuro);
+  border-bottom: 3px solid var(--color-texto-oscuro);
+  box-shadow: 0 4px 0 var(--color-rojo);
+  position: relative;
+  z-index: 5;
+}
+
+.punk-ticker-track {
+  display: inline-flex;
+  gap: var(--space-lg);
+  animation: ticker-slide 25s linear infinite;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.punk-ticker-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.punk-ticker-track .star {
+  color: var(--color-rojo);
+  font-size: 1.1rem;
+}
+
+@keyframes ticker-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   BOTONES POP-PUNK / SKATE PUNK
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.9rem;
+  border: 3px solid var(--color-border-bright);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+  text-align: center;
+  font-weight: 900;
+  white-space: nowrap;
+  position: relative;
+}
+
+.btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--color-border-bright);
+}
+
+.btn-primary {
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  box-shadow: 5px 5px 0 var(--color-rojo);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-mostaza);
+  color: var(--color-texto-oscuro);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--color-rojo);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-card);
+  color: var(--color-texto);
+  border-color: var(--color-texto);
+  box-shadow: 5px 5px 0 var(--color-azul);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-texto);
+  color: var(--color-bg);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--color-azul);
+}
+
+.btn-spotify {
+  background-color: var(--color-azul);
+  color: #ffffff;
+  box-shadow: 5px 5px 0 var(--color-amarillo);
+}
+
+.btn-spotify:hover {
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--color-azul);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN FIJA
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-bg-overlay);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid var(--color-amarillo);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transition-normal);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand-logo {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  color: var(--color-amarillo);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 900;
+  text-shadow: 2px 2px 0 var(--color-rojo);
+}
+
+.brand-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  border: 2px solid var(--color-amarillo);
+  box-shadow: 2px 2px 0 var(--color-rojo);
+  object-fit: cover;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  display: inline-block;
+}
+
+[data-theme="light"] .brand-logo-img {
+  border-color: var(--color-border);
+  box-shadow: 2px 2px 0 var(--color-amarillo);
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: rotate(-4deg) scale(1.06);
+}
+
+[data-theme="light"] .brand-logo {
+  color: var(--color-texto);
+  text-shadow: 2px 2px 0 var(--color-amarillo);
+}
+
+.brand-logo span {
+  color: var(--color-rojo);
+}
+
+.brand-logo:hover {
+  color: var(--color-mostaza);
+}
+
+/* Menú desktop */
+.main-nav {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--color-texto);
+  text-transform: uppercase;
+  padding: var(--space-2xs) var(--space-xs);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-amarillo);
+}
+
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active {
+  color: var(--color-azul);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-amarillo);
+  box-shadow: 2px 2px 0 var(--color-rojo);
+}
+
+/* Botón Dark Mode / Light Mode */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  background-color: var(--color-bg-card);
+  color: var(--color-texto);
+  border: 2px solid var(--color-border);
+  padding: 6px 12px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 3px 3px 0 var(--color-amarillo);
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  border-color: var(--color-texto-oscuro);
+  box-shadow: 4px 4px 0 var(--color-rojo);
+  transform: translateY(-2px);
+}
+
+.theme-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Visibilidad de iconos según tema */
+.icon-sun {
+  display: none;
+}
+
+.icon-moon {
+  display: inline-block;
+}
+
+[data-theme="light"] .icon-sun {
+  display: inline-block;
+}
+
+[data-theme="light"] .icon-moon {
+  display: none;
+}
+
+/* Redes en header */
+.header-socials {
+  display: none;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-bg-card);
+  color: var(--color-texto);
+  transition: all var(--transition-fast);
+}
+
+.icon-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.icon-link:hover {
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  border-color: var(--color-amarillo);
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--color-rojo);
+}
+
+/* Botón menú hamburguesa */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 46px;
+  height: 46px;
+  padding: 10px 8px;
+  background-color: var(--color-bg-card);
+  border: 3px solid var(--color-amarillo);
+  box-shadow: 3px 3px 0 var(--color-rojo);
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-amarillo);
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+  transform-origin: center;
+}
+
+[data-theme="light"] .menu-toggle span {
+  background-color: var(--color-texto);
+}
+
+[data-theme="light"] .menu-toggle {
+  border-color: var(--color-texto);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Drawer móvil */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 380px;
+  height: 100vh;
+  background-color: var(--color-bg-card);
+  border-left: 4px solid var(--color-amarillo);
+  padding: calc(var(--header-height) + var(--space-xl)) var(--space-lg) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: right var(--transition-normal);
+  z-index: 1005;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mobile-nav-link {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  letter-spacing: 0.05em;
+  color: var(--color-texto);
+  text-transform: uppercase;
+  display: block;
+  padding: var(--space-xs) 0;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--color-amarillo);
+  padding-left: var(--space-xs);
+  border-bottom-color: var(--color-amarillo);
+}
+
+[data-theme="light"] .mobile-nav-link:hover,
+[data-theme="light"] .mobile-nav-link.active {
+  color: var(--color-azul);
+  border-bottom-color: var(--color-azul);
+}
+
+.mobile-socials {
+  display: flex;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 3px solid var(--color-border);
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  z-index: 1002;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================================================
+   SECCIÓN HERO
+   ========================================================================== */
+
+.hero-section {
+  padding-top: calc(var(--header-height) + var(--space-2xl));
+  padding-bottom: var(--space-2xl);
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: var(--color-bg);
+  transition: background-color var(--transition-normal);
+}
+
+.hero-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: var(--color-rojo);
+  color: var(--color-texto-oscuro);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  padding: var(--space-2xs) var(--space-sm);
+  border: 2px solid var(--color-texto-oscuro);
+  box-shadow: 3px 3px 0 var(--color-amarillo);
+  transform: rotate(-1.5deg);
+  font-weight: 900;
+}
+
+[data-theme="dark"] .hero-badge {
+  color: var(--color-texto);
+}
+
+[data-theme="light"] .hero-badge {
+  color: var(--color-papel);
+}
+
+.hero-badge-alt {
+  display: inline-block;
+  background-color: var(--color-azul);
+  color: var(--color-texto-oscuro);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  padding: var(--space-2xs) var(--space-sm);
+  border: 2px solid var(--color-texto-oscuro);
+  box-shadow: 3px 3px 0 var(--color-amarillo);
+  transform: rotate(1deg);
+  font-weight: 900;
+}
+
+[data-theme="dark"] .hero-badge-alt {
+  color: var(--color-texto);
+}
+
+[data-theme="light"] .hero-badge-alt {
+  color: var(--color-papel);
+}
+
+.hero-title {
+  margin-bottom: var(--space-md);
+  color: var(--color-amarillo);
+  text-shadow: 5px 5px 0 var(--color-rojo), 9px 9px 0 var(--color-shadow-offset);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+}
+
+[data-theme="light"] .hero-title {
+  color: var(--color-texto);
+  text-shadow: 4px 4px 0 var(--color-amarillo), 8px 8px 0 var(--color-rojo);
+}
+
+/* Cuadro de la frase central estilo Zine / Fanzine */
+.hero-quote-box {
+  background-color: var(--color-papel);
+  color: var(--color-papel-texto);
+  border: 4px solid var(--color-border);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  position: relative;
+  box-shadow: 7px 7px 0 var(--color-amarillo);
+  transform: rotate(-0.5deg);
+}
+
+[data-theme="light"] .hero-quote-box {
+  box-shadow: 7px 7px 0 var(--color-rojo);
+}
+
+.hero-quote-tag {
+  position: absolute;
+  top: -14px;
+  left: 16px;
+  background-color: var(--color-rojo);
+  color: var(--color-papel);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  padding: 2px 10px;
+  border: 2px solid var(--color-border);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-quote {
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-papel-texto);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-image-frame {
+  position: relative;
+  border: 4px solid var(--color-amarillo);
+  background-color: var(--color-bg-card);
+  box-shadow: 12px 12px 0 var(--color-azul), 12px 12px 0 4px var(--color-shadow-offset);
+  overflow: hidden;
+  transform: rotate(1deg);
+  transition: transform var(--transition-fast);
+}
+
+[data-theme="light"] .hero-image-frame {
+  border-color: var(--color-border);
+  box-shadow: 12px 12px 0 var(--color-rojo), 12px 12px 0 4px var(--color-border);
+}
+
+.hero-image-frame:hover {
+  transform: rotate(0deg) scale(1.01);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(110%);
+}
+
+.hero-tape {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  padding: 4px 16px;
+  font-weight: 900;
+  border: 2px solid var(--color-border);
+  transform: rotate(3deg);
+  box-shadow: 3px 3px 0 var(--color-rojo);
+  z-index: 3;
+}
+
+/* ==========================================================================
+   SECCIÓN MÚSICA (PRIORITARIA - INMEDIATA TRAS HERO)
+   ========================================================================== */
+
+.music-section {
+  background-color: var(--color-bg-alt);
+  border-top: 4px solid var(--color-amarillo);
+  border-bottom: 4px solid var(--color-rojo);
+  position: relative;
+  transition: background-color var(--transition-normal);
+}
+
+.music-card {
+  background-color: var(--color-bg-card);
+  border: 4px solid var(--color-border-bright);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  box-shadow: 10px 10px 0 var(--color-azul), 10px 10px 0 4px var(--color-shadow-offset);
+  margin-top: var(--space-md);
+  overflow: hidden;
+}
+
+[data-theme="light"] .music-card {
+  box-shadow: 10px 10px 0 var(--color-amarillo), 10px 10px 0 4px var(--color-border);
+}
+
+.music-card-header {
+  background-color: var(--color-azul);
+  color: var(--color-papel);
+  padding: var(--space-sm) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--color-amarillo);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.music-card-header .live-badge {
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  padding: 2px 8px;
+  font-size: 0.85rem;
+  border: 1px solid var(--color-texto-oscuro);
+}
+
+.music-card-body {
+  padding: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.album-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--color-rojo);
+  color: var(--color-papel);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: var(--space-2xs) var(--space-sm);
+  margin-bottom: var(--space-sm);
+  border: 2px solid var(--color-border);
+  box-shadow: 3px 3px 0 var(--color-amarillo);
+}
+
+.album-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--color-amarillo);
+  margin-bottom: var(--space-xs);
+  line-height: 1.05;
+  text-shadow: 2px 2px 0 var(--color-rojo);
+}
+
+[data-theme="light"] .album-title {
+  color: var(--color-texto);
+  text-shadow: 2px 2px 0 var(--color-amarillo);
+}
+
+.album-meta {
+  color: var(--color-mostaza);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-md);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+[data-theme="light"] .album-meta {
+  color: var(--color-rojo);
+}
+
+.album-description {
+  color: var(--color-texto);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-bottom: var(--space-lg);
+}
+
+.spotify-frame-wrapper {
+  background-color: var(--color-bg);
+  border: 3px solid var(--color-amarillo);
+  padding: var(--space-xs);
+  box-shadow: 5px 5px 0 var(--color-rojo);
+}
+
+[data-theme="light"] .spotify-frame-wrapper {
+  border-color: var(--color-border);
+  box-shadow: 5px 5px 0 var(--color-azul);
+}
+
+.spotify-frame-wrapper iframe {
+  display: block;
+  width: 100%;
+}
+
+.music-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+/* ==========================================================================
+   SECCIÓN SOBRE LA BANDA (ESTÉTICA FANZINE / SKATE 90s)
+   ========================================================================== */
+
+.about-narrative {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.about-block {
+  background-color: var(--color-bg-card);
+  border: 3px solid var(--color-border);
+  padding: 0;
+  position: relative;
+  box-shadow: 6px 6px 0 var(--color-shadow-offset);
+  overflow: hidden;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.about-block:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-amarillo);
+  box-shadow: 8px 8px 0 var(--color-amarillo);
+}
+
+[data-theme="light"] .about-block:hover {
+  border-color: var(--color-border);
+  box-shadow: 8px 8px 0 var(--color-azul);
+}
+
+.about-block-header {
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-border);
+  border-bottom: 3px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-block:nth-child(1) .about-block-header {
+  background-color: var(--color-rojo);
+  color: var(--color-papel);
+}
+
+.about-block:nth-child(2) .about-block-header {
+  background-color: var(--color-azul);
+  color: var(--color-papel);
+}
+
+.about-block:nth-child(3) .about-block-header {
+  background-color: var(--color-mostaza);
+  color: var(--color-texto-oscuro);
+}
+
+.about-block:nth-child(4) .about-block-header {
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+}
+
+.about-block-header h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  letter-spacing: 0.08em;
+  color: inherit;
+}
+
+.about-block-content {
+  padding: var(--space-lg);
+}
+
+.about-block-content p {
+  color: var(--color-texto);
+  font-size: 1.05rem;
+}
+
+/* Miembros de la banda - Tarjetas estilo Skate / Festival 90s */
+.members-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.member-card {
+  background-color: var(--color-bg-card);
+  border: 4px solid var(--color-amarillo);
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--color-rojo), 8px 8px 0 4px var(--color-shadow-offset);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+}
+
+[data-theme="light"] .member-card {
+  border-color: var(--color-border);
+  box-shadow: 8px 8px 0 var(--color-amarillo), 8px 8px 0 4px var(--color-border);
+}
+
+.member-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 10px 10px 0 var(--color-azul), 10px 10px 0 4px var(--color-shadow-offset);
+}
+
+[data-theme="light"] .member-card:hover {
+  box-shadow: 10px 10px 0 var(--color-rojo), 10px 10px 0 4px var(--color-border);
+}
+
+.member-photo-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg);
+  overflow: hidden;
+  position: relative;
+  border-bottom: 4px solid var(--color-border);
+}
+
+.member-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(110%);
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.member-card:hover .member-photo-wrap img {
+  filter: contrast(120%);
+  transform: scale(1.04);
+}
+
+.member-info {
+  padding: var(--space-md);
+  background-color: var(--color-bg-card);
+  border-top: 2px solid var(--color-border);
+}
+
+.member-name {
+  font-size: 2rem;
+  color: var(--color-amarillo);
+  margin-bottom: var(--space-2xs);
+  text-shadow: 2px 2px 0 var(--color-shadow-offset);
+}
+
+[data-theme="light"] .member-name {
+  color: var(--color-texto);
+  text-shadow: 2px 2px 0 var(--color-amarillo);
+}
+
+.member-role {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-papel);
+  background-color: var(--color-rojo);
+  display: inline-block;
+  padding: 2px 10px;
+  border: 2px solid var(--color-border);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0;
+  font-weight: 900;
+}
+
+/* Banner de cierre contundente estilo sticker pop-punk */
+.warning-callout {
+  background-color: var(--color-rojo);
+  color: var(--color-papel);
+  border: 5px solid var(--color-amarillo);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  box-shadow: 10px 10px 0 var(--color-shadow-offset);
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+[data-theme="light"] .warning-callout {
+  border-color: var(--color-border);
+  box-shadow: 10px 10px 0 var(--color-amarillo);
+}
+
+.warning-callout-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--color-papel);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 3px 3px 0 var(--color-shadow-offset);
+}
+
+/* ==========================================================================
+   SECCIÓN REDES
+   ========================================================================== */
+
+.socials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.social-card {
+  background-color: var(--color-bg-card);
+  border: 4px solid var(--color-border);
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  color: var(--color-texto);
+  position: relative;
+}
+
+.social-card:hover {
+  transform: translate(-4px, -4px);
+}
+
+.social-card.youtube {
+  border-color: var(--color-rojo);
+  box-shadow: 6px 6px 0 var(--color-shadow-offset);
+}
+
+.social-card.youtube:hover {
+  box-shadow: 8px 8px 0 var(--color-rojo), 8px 8px 0 4px var(--color-shadow-offset);
+}
+
+.social-card.instagram {
+  border-color: var(--color-amarillo);
+  box-shadow: 6px 6px 0 var(--color-shadow-offset);
+}
+
+[data-theme="light"] .social-card.instagram {
+  border-color: var(--color-border);
+}
+
+.social-card.instagram:hover {
+  box-shadow: 8px 8px 0 var(--color-amarillo), 8px 8px 0 4px var(--color-shadow-offset);
+}
+
+.social-card.spotify {
+  border-color: var(--color-azul);
+  box-shadow: 6px 6px 0 var(--color-shadow-offset);
+}
+
+.social-card.spotify:hover {
+  box-shadow: 8px 8px 0 var(--color-azul), 8px 8px 0 4px var(--color-shadow-offset);
+}
+
+.social-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.social-card.youtube .social-icon {
+  color: var(--color-rojo);
+}
+
+.social-card.instagram .social-icon {
+  color: var(--color-mostaza);
+}
+
+[data-theme="dark"] .social-card.instagram .social-icon {
+  color: var(--color-amarillo);
+}
+
+.social-card.spotify .social-icon {
+  color: var(--color-azul);
+}
+
+.social-icon svg {
+  width: 36px;
+  height: 36px;
+  fill: currentColor;
+}
+
+.social-handle {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2xs);
+}
+
+.social-card.youtube .social-handle {
+  color: var(--color-rojo);
+}
+
+.social-card.instagram .social-handle {
+  color: var(--color-rojo-suave);
+}
+
+[data-theme="dark"] .social-card.instagram .social-handle {
+  color: var(--color-amarillo);
+}
+
+.social-card.spotify .social-handle {
+  color: var(--color-azul);
+}
+
+.social-desc {
+  color: var(--color-texto-muted);
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+.social-cta {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-texto);
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   SECCIÓN CONTACTO (ESTILO TICKET / BACKSTAGE PASS 90s)
+   ========================================================================== */
+
+.contact-card {
+  background-color: var(--color-bg-card);
+  border: 4px solid var(--color-amarillo);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: 10px 10px 0 var(--color-rojo), 10px 10px 0 4px var(--color-shadow-offset);
+  position: relative;
+}
+
+[data-theme="light"] .contact-card {
+  border-color: var(--color-border);
+  box-shadow: 10px 10px 0 var(--color-amarillo), 10px 10px 0 4px var(--color-border);
+}
+
+.contact-status {
+  display: inline-block;
+  background-color: var(--color-amarillo);
+  color: var(--color-texto-oscuro);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  padding: var(--space-2xs) var(--space-sm);
+  border: 2px solid var(--color-border);
+  box-shadow: 3px 3px 0 var(--color-azul);
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.contact-title {
+  color: var(--color-amarillo);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin-bottom: var(--space-sm);
+  text-shadow: 2px 2px 0 var(--color-rojo);
+}
+
+[data-theme="light"] .contact-title {
+  color: var(--color-texto);
+  text-shadow: 2px 2px 0 var(--color-amarillo);
+}
+
+.contact-text {
+  color: var(--color-texto);
+  font-size: 1.15rem;
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-bg);
+  border-top: 4px solid var(--color-amarillo);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-xl);
+  margin-top: auto;
+  transition: background-color var(--transition-normal);
+}
+
+[data-theme="light"] .site-footer {
+  border-top-color: var(--color-border);
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  padding-bottom: var(--space-xl);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.footer-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.footer-logo-img {
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+  border: 2px solid var(--color-amarillo);
+  box-shadow: 3px 3px 0 var(--color-rojo);
+  object-fit: cover;
+  display: inline-block;
+}
+
+[data-theme="light"] .footer-logo-img {
+  border-color: var(--color-border);
+  box-shadow: 3px 3px 0 var(--color-amarillo);
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  letter-spacing: 0.08em;
+  color: var(--color-amarillo);
+  font-weight: 900;
+  text-shadow: 3px 3px 0 var(--color-rojo);
+}
+
+[data-theme="light"] .footer-brand {
+  color: var(--color-texto);
+  text-shadow: 3px 3px 0 var(--color-amarillo);
+}
+
+.footer-social-links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer-bottom {
+  padding-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  align-items: center;
+  text-align: center;
+}
+
+.footer-copy {
+  color: var(--color-texto-muted);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.footer-badge {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-texto-oscuro);
+  background-color: var(--color-amarillo);
+  padding: 2px 10px;
+  border: 2px solid var(--color-border);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 900;
+  box-shadow: 3px 3px 0 var(--color-rojo);
+}
+
+/* ==========================================================================
+   BREAKPOINTS / RESPONSIVE (640px, 960px, 1200px)
+   ========================================================================== */
+
+@media (min-width: 640px) {
+  .members-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-narrative {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .socials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 960px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+  }
+
+  .header-socials {
+    display: flex;
+  }
+
+  .mobile-nav,
+  .nav-backdrop {
+    display: none;
+  }
+
+  .hero-wrapper {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-2xl);
+  }
+
+  .music-card-body {
+    grid-template-columns: 1fr 1.25fr;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+}
+
+/* ==========================================================================
+   ACCESIBILIDAD Y MOVIMIENTO REDUCIDO
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .punk-ticker-track {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   SECCIÓN NOVEDADES (Instagram Embed)
+   ========================================================================== */
+
+.novedades-section {
+  background-color: var(--color-bg-alt);
+}
+
+.novedades-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.novedades-intro {
+  max-width: 520px;
+}
+
+.novedades-intro p {
+  font-size: 1.15rem;
+  color: var(--color-texto-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.novedades-intro .btn {
+  display: inline-flex;
+}
+
+.novedades-embed-wrap {
+  position: relative;
+}
+
+.novedades-embed-card {
+  background-color: var(--color-bg-card);
+  border: 3px solid var(--color-border-bright);
+  box-shadow: 8px 8px 0 var(--color-rojo);
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+[data-theme="light"] .novedades-embed-card {
+  box-shadow: 8px 8px 0 var(--color-azul);
+}
+
+.novedades-embed-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 var(--color-rojo);
+}
+
+[data-theme="light"] .novedades-embed-card:hover {
+  box-shadow: 11px 11px 0 var(--color-azul);
+}
+
+.novedades-embed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 2px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.novedades-embed-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--color-texto-muted);
+}
+
+.novedades-embed-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-rojo);
+  box-shadow: 0 0 8px var(--color-rojo);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.novedades-embed-card iframe {
+  display: block;
+  border: none;
+  width: 100%;
+  min-height: 540px;
+}
+
+.novedades-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  color: var(--color-texto-muted);
+}
+
+.novedades-fallback svg {
+  width: 48px;
+  height: 48px;
+  fill: var(--color-gris-azulado);
+}
+
+.novedades-fallback p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .novedades-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+}

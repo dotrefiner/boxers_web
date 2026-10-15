@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boxers | Punk Rock Oficial</title>
+  <meta name="description"
+    content="Sitio oficial de Boxers, banda de punk rock. Escuchá su primer LP 'El valor de hacer lo correcto', conocé a la banda y seguí sus redes oficiales.">
+  <meta name="author" content="Boxers">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Meta Compartir -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Boxers | Punk Rock Oficial">
+  <meta property="og:description"
+    content="Tomar parte, y protagonizar tu propia historia. Escuchá el disco debut 'El valor de hacer lo correcto'.">
+  <meta property="og:image" content="assets/img/banda-los-3.webp">
+  <meta property="og:locale" content="es_AR">
+
+  <!-- Tipografías de Google Fonts con display=swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon oficial de la banda -->
+  <link rel="icon" type="image/jpeg" href="assets/img/boxers_logo.jpeg">
+
+  <!-- Hojas de estilo Vanilla -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Navegación fija -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Boxers - Inicio">
+        <img src="assets/img/boxers_logo.jpeg" alt="Logo de Boxers" class="brand-logo-img" width="44" height="44">
+        <span>BOXERS<span>.</span></span>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#musica" class="nav-link">Música</a></li>
+          <li><a href="#banda" class="nav-link">La Banda</a></li>
+          <li><a href="#novedades" class="nav-link">Novedades</a></li>
+          <li><a href="#redes" class="nav-link">Redes</a></li>
+        </ul>
+      </nav>
+
+      <!-- Acciones de cabecera: Modo y Redes -->
+      <div class="header-actions">
+        <!-- Selector Modo Claro / Oscuro -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Cambiar modo de color" title="Alternar modo claro / oscuro">
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 0 0-1.41.996.996 0 0 0 0 1.41l1.06 1.06c.39.39.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-.19 1.4 10 10 0 0 0 10.34 9.9 10 10 0 1 1-10.15-11.3z"/></svg>
+          </span>
+          <span class="theme-toggle-text">CLARO</span>
+        </button>
+
+        <!-- Redes en Header -->
+        <div class="header-socials">
+          <a href="https://open.spotify.com/artist/1BaCQzmHwYz7cQgeyu242s" target="_blank" rel="noopener noreferrer"
+            class="icon-link" aria-label="Spotify de Boxers">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.435-5.308-1.76-8.792-.963-.335.077-.67-.133-.746-.468-.077-.334.132-.67.467-.746 3.809-.87 7.077-.497 9.72 1.115.295.18.388.563.208.855zm1.225-2.724c-.226.368-.71.482-1.077.256-2.69-1.653-6.79-2.132-9.971-1.166-.413.124-.852-.11-.976-.523-.125-.413.11-.852.523-.976 3.633-1.103 8.147-.568 11.27 1.352.367.226.48.71.254 1.077zm.106-2.836C14.693 8.87 9.38 8.69 6.297 9.626c-.494.15-1.02-.132-1.17-.626-.15-.494.133-1.02.627-1.17 3.553-1.078 9.426-.87 13.15 1.34.444.264.59.84.327 1.285-.264.443-.84.59-1.285.326z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/boxersbanda/" target="_blank" rel="noopener noreferrer" class="icon-link"
+            aria-label="Instagram de Boxers">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@boxersbanda" target="_blank" rel="noopener noreferrer" class="icon-link"
+            aria-label="YouTube de Boxers">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mobileNav"
+        aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Backdrop y Menú Móvil Drawer -->
+  <div id="navBackdrop" class="nav-backdrop" aria-hidden="true"></div>
+  <aside id="mobileNav" class="mobile-nav" aria-label="Menú de navegación móvil">
+    <div>
+      <div style="padding-bottom: var(--space-md); border-bottom: 2px solid var(--color-border); margin-bottom: var(--space-md);">
+        <button class="theme-toggle" aria-label="Cambiar modo de color" style="width: 100%; justify-content: center;">
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 0 0-1.41.996.996 0 0 0 0 1.41l1.06 1.06c.39.39.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-.19 1.4 10 10 0 0 0 10.34 9.9 10 10 0 1 1-10.15-11.3z"/></svg>
+          </span>
+          <span class="theme-toggle-text">CLARO</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="#musica" class="mobile-nav-link">Música</a></li>
+        <li><a href="#banda" class="mobile-nav-link">La Banda</a></li>
+        <li><a href="#novedades" class="mobile-nav-link">Novedades</a></li>
+        <li><a href="#redes" class="mobile-nav-link">Redes</a></li>
+      </ul>
+    </div>
+    <div class="mobile-socials">
+      <a href="https://open.spotify.com/artist/1BaCQzmHwYz7cQgeyu242s" target="_blank" rel="noopener noreferrer"
+        class="icon-link" aria-label="Spotify de Boxers">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.435-5.308-1.76-8.792-.963-.335.077-.67-.133-.746-.468-.077-.334.132-.67.467-.746 3.809-.87 7.077-.497 9.72 1.115.295.18.388.563.208.855zm1.225-2.724c-.226.368-.71.482-1.077.256-2.69-1.653-6.79-2.132-9.971-1.166-.413.124-.852-.11-.976-.523-.125-.413.11-.852.523-.976 3.633-1.103 8.147-.568 11.27 1.352.367.226.48.71.254 1.077zm.106-2.836C14.693 8.87 9.38 8.69 6.297 9.626c-.494.15-1.02-.132-1.17-.626-.15-.494.133-1.02.627-1.17 3.553-1.078 9.426-.87 13.15 1.34.444.264.59.84.327 1.285-.264.443-.84.59-1.285.326z" />
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/boxersbanda/" target="_blank" rel="noopener noreferrer" class="icon-link"
+        aria-label="Instagram de Boxers">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+      <a href="https://www.youtube.com/@boxersbanda" target="_blank" rel="noopener noreferrer" class="icon-link"
+        aria-label="YouTube de Boxers">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Contenido Principal -->
+  <main>
+    <!-- SECCIÓN HERO -->
+    <section id="hero" class="hero-section" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <div class="hero-badge-group">
+              <span class="hero-badge">PUNK ROCK</span>
+              <span class="hero-badge-alt">LP DEBUT 2023</span>
+            </div>
+            <h1 id="heroTitle" class="hero-title">BOXERS</h1>
+            <div class="hero-quote-box">
+              <span class="hero-quote-tag">MANIFIESTO</span>
+              <p class="hero-quote">
+                “Tomar parte, y protagonizar tu propia historia. No la ideal, no la que te contaron que debías vivir,
+                sino la tuya, la que siempre soñaste.”
+              </p>
+            </div>
+            <div class="btn-group">
+              <a href="#musica" class="btn btn-primary">Escuchar el álbum</a>
+              <a href="https://www.instagram.com/boxersbanda/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary">Seguir en Instagram</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-tape">BUENOS AIRES // FRANCIA</div>
+            <div class="hero-image-frame">
+              <img src="assets/img/banda-los-3.webp"
+                alt="Integrantes de Boxers: Juan Scarrone, Mariano Guzmán y Maxi Villalba" width="1800" height="600">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CINTA MARQUEE / TICKER PUNK 90s -->
+    <div class="punk-ticker" aria-hidden="true">
+      <div class="punk-ticker-track">
+        <span>BOXERS <span class="star">★</span> PUNK ROCK <span class="star">★</span> EL VALOR DE HACER LO CORRECTO <span class="star">★</span> BUENOS AIRES // FRANCIA <span class="star">★</span> PURA AUTOGESTIÓN <span class="star">★</span> 11.000 KM <span class="star">★</span></span>
+        <span>BOXERS <span class="star">★</span> PUNK ROCK <span class="star">★</span> EL VALOR DE HACER LO CORRECTO <span class="star">★</span> BUENOS AIRES // FRANCIA <span class="star">★</span> PURA AUTOGESTIÓN <span class="star">★</span> 11.000 KM <span class="star">★</span></span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN MÚSICA (PRIORITARIA - INMEDIATAMENTE TRAS HERO) -->
+    <section id="musica" class="section music-section" aria-labelledby="musicaTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">DISCOGRAFÍA OFICIAL</span>
+          <h2 id="musicaTitle">Música</h2>
+        </div>
+
+        <div class="music-card">
+          <div class="music-card-header">
+            <span>DISCOGRAFÍA OFICIAL // SPOTIFY PLAYER</span>
+            <span class="live-badge">LP COMPLETO</span>
+          </div>
+
+          <div class="music-card-body">
+            <div class="music-info">
+              <div>
+                <span class="album-badge">PRIMER LP // 2023</span>
+                <h3 class="album-title">El valor de hacer lo correcto</h3>
+                <p class="album-meta">Boxers • 2023 • Álbum de estudio</p>
+                <p class="album-description">
+                  Relata la historia de una persona que decide cambiar su vida, o mejor dicho su destino. Grabado con pura
+                  autogestión a 11.000 km de distancia entre Buenos Aires y Francia.
+                </p>
+              </div>
+              <div class="music-cta-group">
+                <a href="https://open.spotify.com/album/206nG081AvFbA0xUSme0I3" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-spotify">
+                  Abrir en Spotify
+                </a>
+                <a href="https://open.spotify.com/artist/1BaCQzmHwYz7cQgeyu242s" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary">
+                  Perfil de Artista
+                </a>
+              </div>
+            </div>
+
+            <div class="spotify-frame-wrapper">
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/album/206nG081AvFbA0xUSme0I3?utm_source=generator&theme=0"
+                width="100%" height="352" frameborder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
+                title="El valor de hacer lo correcto - Boxers"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN NOVEDADES -->
+    <section id="novedades" class="section novedades-section" aria-labelledby="novedadesTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ÚLTIMAS NOVEDADES</span>
+          <h2 id="novedadesTitle">Novedades</h2>
+        </div>
+
+        <div class="novedades-layout">
+          <div class="novedades-intro">
+            <p>
+              Seguí el día a día de la banda en Instagram: anuncios de fechas, material de ensayos, backstage y novedades
+              directas de Boxers.
+            </p>
+            <a href="https://www.instagram.com/boxersbanda/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary" aria-label="Seguir @boxersbanda en Instagram">
+              Seguir @boxersbanda
+            </a>
+          </div>
+
+          <div class="novedades-embed-wrap">
+            <div class="novedades-embed-card">
+              <div class="novedades-embed-header">
+                <span class="novedades-embed-label">INSTAGRAM // @BOXERSBANDA</span>
+                <span class="novedades-embed-dot" aria-hidden="true"></span>
+              </div>
+              <iframe
+                src="https://www.instagram.com/boxersbanda/embed"
+                title="Últimas publicaciones de Boxers en Instagram"
+                allowtransparency="true"
+                allowfullscreen
+                scrolling="no"
+                loading="lazy"
+                aria-label="Feed de Instagram de @boxersbanda">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE LA BANDA -->
+    <section id="banda" class="section" aria-labelledby="bandaTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">IDENTIDAD Y SONIDO</span>
+          <h2 id="bandaTitle">Sobre la banda</h2>
+        </div>
+
+        <!-- Bloques narrativos con copy exacto provisto por la banda estructurados estilo fanzine -->
+        <div class="about-narrative">
+          <article class="about-block">
+            <div class="about-block-header">
+              <h3 class="about-block-title">El Despertar</h3>
+              <span class="section-tag">01 // ORIGEN</span>
+            </div>
+            <div class="about-block-content">
+              <p>
+                Boxers, nace de un despertar mental. Ese momento en el que ves tu vida pasar y decidís tomar parte, y
+                protagonizar tu propia historia. No la ideal, no la que te contaron que debías vivir, sino la tuya, la que
+                siempre soñaste.
+              </p>
+            </div>
+          </article>
+
+          <article class="about-block">
+            <div class="about-block-header">
+              <h3 class="about-block-title">El Disco y la Congruencia</h3>
+              <span class="section-tag">02 // EL LP</span>
+            </div>
+            <div class="about-block-content">
+              <p>
+                Presentan durante el 2023 su primer LP “El valor de hacer lo correcto” que relata la historia de una
+                persona que decide cambiar su vida, o mejor dicho su destino. Impreso está en sus letras el deseo por
+                evolucionar y abandonar el miedo, y un poco también en sus integrantes, la congruencia entre sus vidas y
+                sus canciones.
+              </p>
+              <p>
+                Ayudarte a tomar la decisión que te haga feliz, tal vez sea toda la cuestión de por qué existe este disco.
+                Que sepas que todos pasamos por situaciones más o menos complicadas y que todo se puede. Hacer lo correcto
+                es poder elegir lo que creas que esté bien para vos mismo; no hacerle a los demás lo que no te gustaría
+                que te hagan a vos; seguir tu sueño, omitiendo aquellos comentarios que solo buscan desanimarte.
+              </p>
+            </div>
+          </article>
+
+          <article class="about-block">
+            <div class="about-block-header">
+              <h3 class="about-block-title">La Esencia Punk</h3>
+              <span class="section-tag">03 // SONIDO</span>
+            </div>
+            <div class="about-block-content">
+              <p>
+                La esencia de las canciones están concebidas desde una mirada punk, criticar lo que Boxers cree que está
+                mal, hacer ruido con eso y por qué no, despertar cabezas. Confiar en uno mismo, sin dudas ni miedos al
+                fracaso, reintentar con todo lo que aprendimos, sin rendirnos.
+              </p>
+              <p>
+                Desde ese lugar nació el proyecto; el premio es el resultado final y en consecuencia, es el valor de hacer
+                lo correcto.
+              </p>
+            </div>
+          </article>
+
+          <article class="about-block">
+            <div class="about-block-header">
+              <h3 class="about-block-title">Autogestión a 11.000 km</h3>
+              <span class="section-tag">04 // DISTANCIA</span>
+            </div>
+            <div class="about-block-content">
+              <p>
+                Toma lo mejor de este género con un sonido característico, poderoso y con un mensaje contundente, una
+                búsqueda conceptual de forma evolutiva, poco vista en estos tiempos. Estribillos pop, fuerza instrumental
+                y un gran diferencial, que fue haber podido terminar un disco entero estando a 11.000 km de distancia
+                (Maxi Villalba desde Francia y el resto de la banda en Buenos Aires) sin necesidad de acudir a estudios
+                profesionales de grabación ya que desde el principio hasta el final fue pura autogestión.
+              </p>
+              <p>
+                Boxers es un grupo de amigos que coincidieron sobre una cuestión que nos afecta a todos, que a la
+                distancia logró encontrar su propia identidad, su propia manera de decir las cosas y que consiguió un piso
+                firme sobre el cual construir, haciendo música libre y sin tapujos, con el objetivo de que llegue el
+                mensaje, incomode, genere preguntas y también ayude a quienes están en la misma.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Integrantes de la banda con las imágenes y nombres modificados por el usuario intactos -->
+        <div class="members-section">
+          <div class="section-header">
+            <span class="section-tag">INTEGRANTES</span>
+            <h3>Formación</h3>
+          </div>
+
+          <div class="members-grid">
+            <!-- Juan Scarrone -->
+            <div class="member-card">
+              <div class="member-photo-wrap">
+                <img src="assets/img/gubaldo.webp" alt="Juan Scarrone (Pato) en guitarra y voz" loading="lazy"
+                  width="800" height="800">
+              </div>
+              <div class="member-info">
+                <h4 class="member-name">Juan Scarrone</h4>
+                <p class="member-role">Guitarra y voz</p>
+              </div>
+            </div>
+
+            <!-- Mariano Guzmán -->
+            <div class="member-card">
+              <div class="member-photo-wrap">
+                <img src="assets/img/mariano-guzman.webp" alt="Mariano Guzmán (Gubaldo) en bajo y voz" loading="lazy"
+                  width="800" height="800">
+              </div>
+              <div class="member-info">
+                <h4 class="member-name">Mariano Guzmán</h4>
+                <p class="member-role">Bajo y voz</p>
+              </div>
+            </div>
+
+            <!-- Maxi Villalba -->
+            <div class="member-card">
+              <div class="member-photo-wrap">
+                <img src="assets/img/max-maxi-villalba.webp" alt="Maxi Villalba (Max) en batería" loading="lazy"
+                  width="800" height="800">
+              </div>
+              <div class="member-info">
+                <h4 class="member-name">Maxi Villalba</h4>
+                <p class="member-role">Batería</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cierre de advertencia con fondo rojo de alto contraste -->
+        <aside class="warning-callout" aria-label="Mensaje final de la banda">
+          <p class="warning-callout-text">
+            “Cuidado, porque tal vez, después de escuchar esto, nada vuelva a ser igual.”
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECCIÓN REDES -->
+    <section id="redes" class="section section-alt" aria-labelledby="redesTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">COMUNIDAD Y PLATAFORMAS</span>
+          <h2 id="redesTitle">Redes Oficiales</h2>
+        </div>
+
+        <div class="socials-grid">
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@boxersbanda" target="_blank" rel="noopener noreferrer"
+            class="social-card youtube" aria-label="Canal oficial de YouTube @boxersbanda">
+            <div>
+              <div class="social-card-header">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </span>
+                <span class="section-tag">VIDEOS</span>
+              </div>
+              <h3 class="social-handle">@boxersbanda</h3>
+              <p class="social-desc">Videoclips, sesiones en vivo y material audiovisual de la banda.</p>
+            </div>
+            <span class="social-cta">Suscribirse al canal →</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/boxersbanda/" target="_blank" rel="noopener noreferrer"
+            class="social-card instagram" aria-label="Perfil oficial de Instagram @boxersbanda">
+            <div>
+              <div class="social-card-header">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </span>
+                <span class="section-tag">NOVEDADES</span>
+              </div>
+              <h3 class="social-handle">@boxersbanda</h3>
+              <p class="social-desc">El día a día, anuncios de lanzamientos, ensayos y backstage.</p>
+            </div>
+            <span class="social-cta">Seguir en Instagram →</span>
+          </a>
+
+          <!-- Spotify -->
+          <a href="https://open.spotify.com/artist/1BaCQzmHwYz7cQgeyu242s" target="_blank" rel="noopener noreferrer"
+            class="social-card spotify" aria-label="Perfil oficial de artista en Spotify">
+            <div>
+              <div class="social-card-header">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.435-5.308-1.76-8.792-.963-.335.077-.67-.133-.746-.468-.077-.334.132-.67.467-.746 3.809-.87 7.077-.497 9.72 1.115.295.18.388.563.208.855zm1.225-2.724c-.226.368-.71.482-1.077.256-2.69-1.653-6.79-2.132-9.971-1.166-.413.124-.852-.11-.976-.523-.125-.413.11-.852.523-.976 3.633-1.103 8.147-.568 11.27 1.352.367.226.48.71.254 1.077zm.106-2.836C14.693 8.87 9.38 8.69 6.297 9.626c-.494.15-1.02-.132-1.17-.626-.15-.494.133-1.02.627-1.17 3.553-1.078 9.426-.87 13.15 1.34.444.264.59.84.327 1.285-.264.443-.84.59-1.285.326z" />
+                  </svg>
+                </span>
+                <span class="section-tag">STREAMING</span>
+              </div>
+              <h3 class="social-handle">Boxers en Spotify</h3>
+              <p class="social-desc">Sumá nuestras canciones a tus playlists y escuchá toda la discografía.</p>
+            </div>
+            <span class="social-cta">Escuchar en Spotify →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-wrap">
+          <img src="assets/img/boxers_logo.jpeg" alt="Logo de Boxers" class="footer-logo-img" width="54" height="54">
+          <div class="footer-brand">BOXERS</div>
+        </div>
+        <div class="footer-social-links">
+          <a href="https://open.spotify.com/artist/1BaCQzmHwYz7cQgeyu242s" target="_blank" rel="noopener noreferrer"
+            class="icon-link" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.435-5.308-1.76-8.792-.963-.335.077-.67-.133-.746-.468-.077-.334.132-.67.467-.746 3.809-.87 7.077-.497 9.72 1.115.295.18.388.563.208.855zm1.225-2.724c-.226.368-.71.482-1.077.256-2.69-1.653-6.79-2.132-9.971-1.166-.413.124-.852-.11-.976-.523-.125-.413.11-.852.523-.976 3.633-1.103 8.147-.568 11.27 1.352.367.226.48.71.254 1.077zm.106-2.836C14.693 8.87 9.38 8.69 6.297 9.626c-.494.15-1.02-.132-1.17-.626-.15-.494.133-1.02.627-1.17 3.553-1.078 9.426-.87 13.15 1.34.444.264.59.84.327 1.285-.264.443-.84.59-1.285.326z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/boxersbanda/" target="_blank" rel="noopener noreferrer" class="icon-link"
+            aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@boxersbanda" target="_blank" rel="noopener noreferrer" class="icon-link"
+              aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">BOXERS © 2024 • Todos los derechos reservados.</p>
+          <span class="footer-badge">Hecho con autogestión</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script principal Vanilla -->
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

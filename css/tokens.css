@@ -1,0 +1,99 @@
+/* ==========================================================================
+   BOXERS PUNK ROCK - DESIGN TOKENS
+   Paleta y sistema visual estricto según especificación
+   Soporte completo para Dark Mode y Light Mode (90s / 2000s Pop-Punk)
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  /* Paleta oficial obligatoria */
+  --color-amarillo: #ffcf0b;
+  --color-rojo: #c7003f;
+  --color-azul: #006dd2;
+  --color-mostaza: #d2b654;
+  --color-rojo-suave: #be5154;
+  --color-gris-azulado: #8095a6;
+
+  /* Fondos y superficies: Modo Oscuro (Aprobado) */
+  --color-bg: #141619;
+  --color-bg-alt: #1c2028;
+  --color-bg-card: #222631;
+  --color-bg-card-hover: #2b303d;
+  --color-bg-overlay: rgba(20, 22, 25, 0.95);
+
+  /* Superficies estilo fanzine / sticker */
+  --color-papel: #f7f7f2;
+  --color-papel-texto: #101214;
+
+  /* Texto */
+  --color-texto: #fbfbfb;
+  --color-texto-oscuro: #101214;
+  --color-texto-muted: var(--color-gris-azulado);
+
+  /* Bordes punk y grilla de fondo */
+  --color-border: #363c48;
+  --color-border-bright: var(--color-amarillo);
+  --color-grid-line: #2d333e;
+  --color-shadow-offset: #101214;
+
+  /* Tipografías */
+  --font-display: 'Bebas Neue', 'Anton', Impact, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Espaciado */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Jerarquía de anchos */
+  --container-max: 1200px;
+  --container-narrow: 880px;
+
+  /* Altura de header fijo */
+  --header-height: 74px;
+
+  /* Transiciones y micro-interacciones */
+  --transition-fast: 150ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-normal: 250ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ==========================================================================
+   MODO CLARO (LIGHT MODE)
+   Estética fanzine / flyer diurno con fondos claros y contrastes 90s/2000s
+   ========================================================================== */
+[data-theme="light"] {
+  /* Paleta oficial mantenida */
+  --color-amarillo: #ffcf0b;
+  --color-rojo: #c7003f;
+  --color-azul: #006dd2;
+  --color-mostaza: #d2b654;
+  --color-rojo-suave: #be5154;
+  --color-gris-azulado: #8095a6;
+
+  /* Fondos y superficies claras */
+  --color-bg: #f5f5f0;
+  --color-bg-alt: #e9e9e1;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #fcfcf9;
+  --color-bg-overlay: rgba(245, 245, 240, 0.95);
+
+  /* Superficies de papel */
+  --color-papel: #ffffff;
+  --color-papel-texto: #101214;
+
+  /* Texto de alto contraste sobre fondo claro */
+  --color-texto: #101214;
+  --color-texto-oscuro: #101214;
+  --color-texto-muted: #4e5564;
+
+  /* Bordes y sombras duros estilo skate / cómic punk */
+  --color-border: #101214;
+  --color-border-bright: #101214;
+  --color-grid-line: rgba(16, 18, 20, 0.08);
+  --color-shadow-offset: #101214;
+}
